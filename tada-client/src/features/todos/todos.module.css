@@ -12,3 +12,7 @@
     font-size: 0.7em;
     color: dimgrey;
 }
+
+.TodoTextDone {
+    text-decoration: line-through;
+}
