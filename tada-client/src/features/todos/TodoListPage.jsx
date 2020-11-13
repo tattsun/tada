@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAllTodos, todoSetDoneStatus } from './todosSlice';
+import { selectAllTodos, todoDeleted, todoSetDoneStatus } from './todosSlice';
 import classes from './todos.module.css';
 import TodoInputForm from './TodoInputForm';
 
@@ -13,6 +13,11 @@ const TodoListPage = () => {
 
   const onDoneClicked = (todoId, done) => () => {
     dispatch(todoSetDoneStatus({ id: todoId, done }));
+  };
+
+  const onDeleteClicked = (todoId) => (e) => {
+    e.preventDefault();
+    dispatch(todoDeleted({ id: todoId }));
   };
 
   const todoItems = orderedTodos.map((todo) => (
@@ -31,6 +36,8 @@ const TodoListPage = () => {
           )
         </span>
       </span>
+
+      <button type="button" className={classes.LinkButton} onClick={onDeleteClicked(todo.id)}>Delete</button>
     </div>
   ));
 

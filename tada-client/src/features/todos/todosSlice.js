@@ -15,6 +15,16 @@ const todosSlice = createSlice({
   name: 'todos',
   initialState,
   reducers: {
+    todoDeleted(state, action) {
+      const { id } = action.payload;
+      const idx = state.todos.findIndex((todo) => todo.id === id);
+
+      if (idx === -1) {
+        return;
+      }
+
+      state.todos.splice(idx, 1);
+    },
     todoAdded(state, action) {
       const maxOrder = state.todos.reduce((acc, cur) => {
         if (cur.order > acc) {
@@ -46,7 +56,7 @@ const todosSlice = createSlice({
   },
 });
 
-export const { todoAdded, todoSetDoneStatus } = todosSlice.actions;
+export const { todoAdded, todoSetDoneStatus, todoDeleted } = todosSlice.actions;
 
 export default todosSlice.reducer;
 
