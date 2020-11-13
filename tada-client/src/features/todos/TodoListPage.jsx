@@ -7,8 +7,10 @@ import TodoInputForm from './TodoInputForm';
 const TodoListPage = () => {
   const todos = useSelector(selectAllTodos);
 
-  const todoItems = todos.map((todo) => (
-    <div className={classes.TodoItem}>
+  const orderedTodos = todos.slice().sort((a, b) => a.order - b.order);
+
+  const todoItems = orderedTodos.map((todo) => (
+    <div className={classes.TodoItem} key={todo.id}>
       {todo.id}
       :
       {todo.text}
