@@ -1,0 +1,14 @@
+.TodoItem {
+    padding: 5px;
+    margin: 5px;
+    border: black 1px solid;
+}
+
+.InputForm {
+    padding: 10px;
+}
+
+.TodoId {
+    font-size: 0.7em;
+    color: dimgrey;
+}
