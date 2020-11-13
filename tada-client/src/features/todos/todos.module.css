@@ -26,3 +26,8 @@
     margin: 0;
     padding: 0;
 }
+
+.LinkButton:hover,
+.LinkButton:focus {
+    text-decoration: none;
+}
